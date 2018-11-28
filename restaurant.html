@@ -1,0 +1,74 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <div><a href="/fsearch">Return to Home Page</a></div>
+
+  <h1>Facility Detail</h1>
+
+   <h3>Basic Information</h3>
+   <div>
+        <div>Facility Name: {{data[0][4]}}</div>
+        <div>Facility Id: {{data[0][0]}}</div>
+        <div>Address: {{data[0][1]}}</div>
+        <div>City: {{data[0][2]}}</div>
+        <div>State: {{data[0][3]}}</div>
+        <div>Zip Code: {{data[0][5]}}</div>        
+        <div>Owner Name: {{data[1][1]}}</div> 
+        <div>Service Description: {{data[2][0][0]}}</div> 
+    
+    <h3>Investigating Employee ID</h3>   
+    <div>
+            {% for n in data[5] %}
+            <div>{{n}}</div>
+            <p></p>
+            {% endfor %}
+    </div>
+
+    <h3>Inspection</h3>   
+    <div>
+            {% for n in data[6] %}
+            <div>{{n}}</div>
+            <p></p>
+            {% endfor %}
+    </div>
+
+    <h3>Violations</h3>
+        <div>
+            {% for n in data[3] %}
+            <div>Desciption: {{n[0]}}</div>
+            <div>Code: {{n[1]}}</div>
+            <div>Status: {{n[2]}}</div>
+            <p></p>
+            {% endfor %}
+        </div>
+
+    <h3>Comments</h3>
+    <div>
+        {% for n in data[4] %}
+        <div>{{n[0]}}{{n[1]}}</div>
+        <p></p>
+        {% endfor %}
+    </div>
+        
+    <p></p>
+    <p></p>
+
+    <h3>Add a Comment</h3>
+    <form action="/sub" method="POST">
+        <input type="comment" name="comment" placeholder="comment" style="width:500px; height:100px;">
+        <p></p >
+        <input type="comment" name="time" placeholder="time">
+        <input type="u_id" name="u_id" placeholder="email">
+        <input type="submit" value="submit">
+
+</body>
+
+
+</html>

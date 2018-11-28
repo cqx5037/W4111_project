@@ -1,0 +1,29 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Find A Facility</h1>
+  <div>{{data}}</div>
+
+  <div>
+    {% for n in data %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+<form method="POST" action="/search">
+<p>Enter the facility full name: <input type="text" name="name"> <input type="submit" value="Search"></p>
+</form>
+
+<p><a href="/facility">See the facility details</a></p>
+
+</body>
+
+
+</html>
